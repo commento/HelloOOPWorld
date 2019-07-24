@@ -42,11 +42,11 @@ public:
 	}
 
 	void display(std::vector<Character> string)
-	{		std::string outstream;	
+	{	
 			for(auto character : string){
-				outstream += character.getCharacter();
+				std::cout << character.getCharacter();
 			}
-			std::cout << outstream << std::endl;
+			std::cout << std::endl;
 	}
 
 };
