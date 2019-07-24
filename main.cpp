@@ -28,7 +28,7 @@ public:
 
 class Whitespace : public Character
 {
-	static const char character = " "[0];
+	static const char character = ' ';
 public:
 	Whitespace() : Character(character) {}
 };
@@ -54,16 +54,16 @@ public:
 
 int main(int argc, const char * argv[]) {
 
-	AlphabetLetter H = AlphabetLetter("H"[0]);
-	AlphabetLetter e = AlphabetLetter("e"[0]);
-	AlphabetLetter l = AlphabetLetter("l"[0]);
-	AlphabetLetter o = AlphabetLetter("o"[0]);
+	AlphabetLetter H = AlphabetLetter('H');
+	AlphabetLetter e = AlphabetLetter('e');
+	AlphabetLetter l = AlphabetLetter('l');
+	AlphabetLetter o = AlphabetLetter('o');
 
 	Whitespace space = Whitespace();
 
-	AlphabetLetter W = AlphabetLetter("W"[0]);
-	AlphabetLetter r = AlphabetLetter("r"[0]);
-	AlphabetLetter d = AlphabetLetter("d"[0]);
+	AlphabetLetter W = AlphabetLetter('W');
+	AlphabetLetter r = AlphabetLetter('r');
+	AlphabetLetter d = AlphabetLetter('d');
 
 	std::vector<Character> characters;
 	characters.push_back(H);
