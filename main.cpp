@@ -3,11 +3,12 @@
 #include <sstream>
 #include <string>
 
+using namespace std;
 
 class ICharacter
 {
 public:
-    virtual char getCharacter() = 0;
+    virtual char getCharacter() const = 0;
 };
 
 class Character : public ICharacter
@@ -19,7 +20,7 @@ public:
 
     Character(char character) : character(character){};
 
-    char getCharacter()
+    char getCharacter() const override
     {
         return character;
     }
@@ -29,6 +30,7 @@ class AlphabetLetter : public Character
 {
 
 public:
+    AlphabetLetter() = delete;
     AlphabetLetter(char character) : Character(character) {}
 
 };
@@ -46,12 +48,12 @@ public:
     Displayer() = default;
 
     template <class T>
-    void display(std::vector<T> string)
+    void display(const vector<T>& string)
     {   
             for(auto character : string){
-                std::cout << character.getCharacter();
+                cout << character.getCharacter();
             }
-            std::cout << std::endl;
+            cout << endl;
     }
 
 };
@@ -72,7 +74,7 @@ int main(int argc, const char * argv[]) {
     AlphabetLetter r = AlphabetLetter('r');
     AlphabetLetter d = AlphabetLetter('d');
 
-    std::vector<Character> characters;
+    vector<Character> characters;
     characters.push_back(H);
     characters.push_back(e);
     characters.push_back(l);
