@@ -3,7 +3,14 @@
 #include <sstream>
 #include <string>
 
-class Character
+
+class ICharacter
+{
+public:
+    virtual char getCharacter() = 0;
+};
+
+class Character : public ICharacter
 {
     char character;
 public:
@@ -26,11 +33,11 @@ public:
 
 };
 
-class Whitespace : public Character
+class WhiteSpace : public Character
 {
     static const char character = ' ';
 public:
-    Whitespace() : Character(character) {}
+    WhiteSpace() : Character(character) {}
 };
 
 class Displayer
@@ -57,7 +64,7 @@ int main(int argc, const char * argv[]) {
     AlphabetLetter l = AlphabetLetter('l');
     AlphabetLetter o = AlphabetLetter('o');
 
-    Whitespace space = Whitespace();
+    WhiteSpace space = WhiteSpace();
     AlphabetLetter O = AlphabetLetter('O');
     AlphabetLetter P = AlphabetLetter('P');
 
