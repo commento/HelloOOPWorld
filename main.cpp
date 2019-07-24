@@ -36,12 +36,10 @@ public:
 class Displayer
 {
 public:
-	Displayer()
-	{
+	Displayer() = default;
 
-	}
-
-	void display(std::vector<Character> string)
+	template <class T>
+	void display(std::vector<T> string)
 	{	
 			for(auto character : string){
 				std::cout << character.getCharacter();
@@ -60,6 +58,8 @@ int main(int argc, const char * argv[]) {
 	AlphabetLetter o = AlphabetLetter('o');
 
 	Whitespace space = Whitespace();
+	AlphabetLetter O = AlphabetLetter('O');
+	AlphabetLetter P = AlphabetLetter('P');
 
 	AlphabetLetter W = AlphabetLetter('W');
 	AlphabetLetter r = AlphabetLetter('r');
@@ -71,6 +71,10 @@ int main(int argc, const char * argv[]) {
 	characters.push_back(l);
 	characters.push_back(l);
 	characters.push_back(o);
+	characters.push_back(space);
+	characters.push_back(O);
+	characters.push_back(O);
+	characters.push_back(P);
 	characters.push_back(space);
 	characters.push_back(W);
 	characters.push_back(o);
