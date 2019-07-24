@@ -3,21 +3,35 @@
 #include <sstream>
 #include <string>
 
-class AlphabetLetter
+class Character
 {
-	char letter;
+	char character;
 public:
 
-	AlphabetLetter(char letter) : letter(letter){}
+	Character() = default;
 
-	char getLetter()
+	Character(char character) : character(character){};
+
+	char getCharacter()
 	{
-		return letter;
+		return character;
 	}
+};
 
+class AlphabetLetter : public Character
+{
+
+public:
+	AlphabetLetter(char character) : Character(character) {}
 
 };
 
+class Whitespace : public Character
+{
+	static const char character = " "[0];
+public:
+	Whitespace() : Character(character) {}
+};
 
 class Displayer
 {
@@ -27,10 +41,10 @@ public:
 
 	}
 
-	void display(std::vector<AlphabetLetter> string)
+	void display(std::vector<Character> string)
 	{		std::string outstream;	
-			for(auto letter : string){
-				outstream += letter.getLetter();
+			for(auto character : string){
+				outstream += character.getCharacter();
 			}
 			std::cout << outstream << std::endl;
 	}
@@ -45,28 +59,28 @@ int main(int argc, const char * argv[]) {
 	AlphabetLetter l = AlphabetLetter("l"[0]);
 	AlphabetLetter o = AlphabetLetter("o"[0]);
 
-	AlphabetLetter space = AlphabetLetter(" "[0]);
+	Whitespace space = Whitespace();
 
 	AlphabetLetter W = AlphabetLetter("W"[0]);
 	AlphabetLetter r = AlphabetLetter("r"[0]);
 	AlphabetLetter d = AlphabetLetter("d"[0]);
 
-	std::vector<AlphabetLetter> letters;
-	letters.push_back(H);
-	letters.push_back(e);
-	letters.push_back(l);
-	letters.push_back(l);
-	letters.push_back(o);
-	letters.push_back(space);
-	letters.push_back(W);
-	letters.push_back(o);
-	letters.push_back(r);
-	letters.push_back(l);
-	letters.push_back(d);
+	std::vector<Character> characters;
+	characters.push_back(H);
+	characters.push_back(e);
+	characters.push_back(l);
+	characters.push_back(l);
+	characters.push_back(o);
+	characters.push_back(space);
+	characters.push_back(W);
+	characters.push_back(o);
+	characters.push_back(r);
+	characters.push_back(l);
+	characters.push_back(d);
 
 	Displayer displayer;
 
-	displayer.display(letters);
+	displayer.display(characters);
 
     return 0;
 }
