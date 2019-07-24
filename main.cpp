@@ -2,6 +2,7 @@
 #include <vector>
 #include <sstream>
 #include <string>
+#include <memory>
 
 using namespace std;
 
@@ -18,7 +19,7 @@ public:
 
     Character() = default;
 
-    Character(char character) : character(character){};
+    Character(const char character) : character(character){};
 
     char getCharacter() const override
     {
@@ -59,8 +60,10 @@ public:
 };
 
 #define INSTANTIATE_LETTER(LETTER) \
-        AlphabetLetter LETTER = AlphabetLetter(#LETTER[0]); \
+        AlphabetLetter LETTER = AlphabetLetter(#LETTER[0]) \
 
+#define ADD_CHAR(CHAR) \
+            characters.push_back(CHAR) \
 
 int main(int argc, const char * argv[]) {
 
@@ -77,25 +80,25 @@ int main(int argc, const char * argv[]) {
     AlphabetLetter r = AlphabetLetter('r');
     AlphabetLetter d = AlphabetLetter('d');
 
+
     vector<Character> characters;
-    characters.push_back(H);
-    characters.push_back(e);
-    characters.push_back(l);
-    characters.push_back(l);
-    characters.push_back(o);
-    characters.push_back(space);
-    characters.push_back(O);
-    characters.push_back(O);
-    characters.push_back(P);
-    characters.push_back(space);
-    characters.push_back(W);
-    characters.push_back(o);
-    characters.push_back(r);
-    characters.push_back(l);
-    characters.push_back(d);
+    ADD_CHAR(H);
+    ADD_CHAR(e);
+    ADD_CHAR(l);
+    ADD_CHAR(l);
+    ADD_CHAR(o);
+    ADD_CHAR(space);
+    ADD_CHAR(O);
+    ADD_CHAR(O);
+    ADD_CHAR(P);
+    ADD_CHAR(space);
+    ADD_CHAR(W);
+    ADD_CHAR(o);
+    ADD_CHAR(r);
+    ADD_CHAR(l);
+    ADD_CHAR(d);
 
     Displayer displayer;
-
     displayer.display(characters);
 
     return 0;
