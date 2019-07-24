@@ -58,13 +58,16 @@ public:
 
 };
 
+#define INSTANTIATE_LETTER(LETTER) \
+        AlphabetLetter LETTER = AlphabetLetter(#LETTER[0]); \
+
 
 int main(int argc, const char * argv[]) {
 
-    AlphabetLetter H = AlphabetLetter('H');
-    AlphabetLetter e = AlphabetLetter('e');
-    AlphabetLetter l = AlphabetLetter('l');
-    AlphabetLetter o = AlphabetLetter('o');
+    INSTANTIATE_LETTER(H);
+    INSTANTIATE_LETTER(e);
+    INSTANTIATE_LETTER(l);
+    INSTANTIATE_LETTER(o);
 
     WhiteSpace space = WhiteSpace();
     AlphabetLetter O = AlphabetLetter('O');
