@@ -46,7 +46,12 @@ public:
 class Displayer
 {
 public:
-    Displayer() = default;
+    static Displayer& getInstance()
+    {
+        static Displayer instance; // Guaranteed to be destroyed.
+                                // Instantiated on first use.
+        return instance;
+    }
 
     template <class T>
     void display(const vector<T>& string)
@@ -57,6 +62,12 @@ public:
             cout << endl;
     }
 
+private:
+    Displayer() = default;
+
+public:
+        Displayer(Displayer const&) = delete;
+        void operator=(Displayer const&)  = delete;
 };
 
 #define INSTANTIATE_LETTER(LETTER) \
@@ -98,8 +109,7 @@ int main(int argc, const char * argv[]) {
     ADD_CHAR(l);
     ADD_CHAR(d);
 
-    Displayer displayer;
-    displayer.display(characters);
+    Displayer::getInstance().display(characters);
 
     return 0;
 }
