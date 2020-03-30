@@ -21,6 +21,7 @@ __Dependency Inversion__:
 The current implementation stores the character variable inside the parent Character class abstraction, this is not a optimal considering dependency inversion principle. A better approach would be to have two different interfaces 
 
 
+## Creational patterns
 
-
-
+__Singleton__:
+Displayer class is implemented as a singleton because no instances of the same class is expected. This allow to use to retrieve the class instance anywhere in the code. 

@@ -48,8 +48,7 @@ class Displayer
 public:
     static Displayer& getInstance()
     {
-        static Displayer instance; // Guaranteed to be destroyed.
-                                // Instantiated on first use.
+        static Displayer instance;
         return instance;
     }
 
@@ -66,8 +65,8 @@ private:
     Displayer() = default;
 
 public:
-        Displayer(Displayer const&) = delete;
-        void operator=(Displayer const&)  = delete;
+    Displayer(Displayer const&) = delete;
+    void operator=(Displayer const&)  = delete;
 };
 
 #define INSTANTIATE_LETTER(LETTER) \

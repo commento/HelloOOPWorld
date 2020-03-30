@@ -13,7 +13,7 @@ GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
 
-g++ main.cpp
+g++ main.cpp -std=c++11
 if [ $? -eq 0 ]; then
     echo
     printf "${GREEN}OK${NC}"
@@ -28,5 +28,6 @@ if [ $? -eq 0 ]; then
 else
     echo
     printf "${RED}FAIL${NC}"
+    echo
 fi
 
